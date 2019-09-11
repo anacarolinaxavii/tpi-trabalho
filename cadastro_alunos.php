@@ -31,11 +31,13 @@ if(isset($_REQUEST['cadastrar']))
     }
 }
 ?>
+<link href="css/estilo.css" type="text/css" rel="stylesheet"/>
+<?php include_once 'includes/cabecalho.php'?>
 
 <div>
 <fieldset>
-      <legend> Cadastro Aluno </legend>
-        <form action="editar_alunos.php>atualizar=true"></label>
+      <legend> Cadastrar Alunos </legend>
+        <form action="cadastrar_alunos.php>atualizar=true"></label>
         <label>Nome:<input type="text" name="nome" required/> </label>
         <label>Cidade:<input type="text" name="cidade" required/> </label>
         <label>CEP:<input type="text" name="cep" required/> </label>

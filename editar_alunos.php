@@ -27,5 +27,21 @@ if(isset($_REQUEST['atualizar']))
         echo $e->getmessage();
     }
 }
-
 ?>
+    <link href="css/estilo.css" type="text/css" rel="stylesheet"/>
+    <?php include_once 'includes/cabecalho.php'?>
+<div>
+<fieldset>
+      <legend> editar alunos  </legend>
+        <form action="editar_alunos.php>atualizar=true"></label>
+        <label>Nome:<input type="text" name="nome" required/> </label>
+        <label>Cidade:<input type="text" name="cidade" required/> </label>
+        <label>CEP:<input type="text" name="cep" required/> </label>
+        <label>Bairro:<input type="text" name="bairro" required/> </label>
+        <label>Rua:<input type="rua" required/> </label>
+        <label>Estado:<input type="estado" required/> </label>
+        <label>Data Nasc:<input type="text" name="data_nascimento" required/> </label>
+        <button type="submit">Salvar</button>
+         </form>
+</legend>
+</div>

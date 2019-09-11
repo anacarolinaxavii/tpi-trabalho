@@ -1,4 +1,8 @@
+<link href="css/estilo.css" type="text/css" rel="stylesheet"/>
+<?php include_once 'includes/cabecalho.php'?>
+
 <!DOCTYPE html>
+
 <html>
     <head>
     <link href="css/estilo.css" type="text/css" rel="stylesheet"/>
