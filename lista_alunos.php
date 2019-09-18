@@ -7,9 +7,9 @@
  {
      include 'includes/conexao.php';
 
-     $sql = "SELECT id_aluno, nome, cpf,
+     $sql = "SELECT id, nome, cpf,
                     DATE_FORMAT('%d/%m/%y' , data_nascimento) AS data_nasc
-                    FROM alunos
+                    FROM aluno
                     ORDER BY nome ASC ";
                     
     $stmt = $conexao->prepare($sql);
@@ -20,7 +20,7 @@
  }
 
  ?>
- <link href="css/estilo.css" type="text/css" rel="stylesheet"/>
+ <link href="css/estilos.css" type="text/css" rel="stylesheet"/>
  <?php include_once 'includes/cabecalho.php'?>
 
  <table>

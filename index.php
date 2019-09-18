@@ -1,4 +1,4 @@
-<link href="css/estilo.css" type="text/css" rel="stylesheet"/>
+<link href="css/estilos.css" type="text/css" rel="stylesheet"/>
 <?php include_once 'includes/cabecalho.php'?>
 
 <!DOCTYPE html>
