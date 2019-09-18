@@ -2,31 +2,47 @@
 /**
  * Arquivo para registrar os dados de um aluno no banco de dados.
  */
-if(isset($_REQUEST['atualizar']))
+try
 {
-    try
-    {
-        include 'includes/conexao.php';
+    include 'includes/conexao.php';
 
-        $sql = "UPDATE alunos SET nome = ?, data nascimento = ?, sexo =?,
+    if(isset($_REQUEST['atualizar']))
+    {
+
+        $sql = "UPDATE aluno SET nome = ?, data nascimento = ?, sexo =?,
                                   genero = ?, cpf =?, cidade = ?, estado = ?,
                                   bairro = ?, rua = ?, cep = ?
-                              WHERE id_aluno = ?) ";
+                              WHERE id = ?) ";
         $stmt = $conexao->prepare($sql);
         $stmt->bindParam(1, $_REQUEST['nome']);
-        $stmt->bindParam(1, $_REQUEST['data_nascimento']);
-        $stmt->bindParam(1, $_REQUEST['sexo']);
-        $stmt->bindParam(1, $_REQUEST['genero']);
-        $stmt->bindParam(1, $_REQUEST['cpf']);
-        $stmt->bindParam(1, $_REQUEST['cidade']);
-        $stmt->bindParam(1, $_REQUEST['estado']);
-        $stmt->bindParam(1, $_REQUEST['bairro']);
-        $stmt->bindParam(1, $_REQUEST['cep']);
-        $stmt->bindParam(1, $_REQUEST['id_aluno']);
-    } catch(txception $e){
-        echo $e->getmessage();
+        $stmt->bindParam(2, $_REQUEST['data_nascimento']);
+        $stmt->bindParam(3, $_REQUEST['sexo']);
+        $stmt->bindParam(4, $_REQUEST['genero']);
+        $stmt->bindParam(5, $_REQUEST['cpf']);
+        $stmt->bindParam(6, $_REQUEST['cidade']);
+        $stmt->bindParam(7, $_REQUEST['estado']);
+        $stmt->bindParam(8, $_REQUEST['bairro']);
+        $stmt->bindParam(9, $_REQUEST['cep']);
+        $stmt->bindParam(10, $_REQUEST['id_aluno']);
+        $stmt->execute();
     }
-}
+
+    if(isset($_REQUEST['excluir']))
+    {
+        $stmt = $conexao->prepare("DELETE FROM aluno WHERE id = ?");
+        $stmt->bindparam (1, $_REQUEST['id_aluno']);
+        $stmt->execute();
+        header("location: lista_alunos.php");
+    }
+
+    $stmt = $conexao->prepare("SELECT * FROM aluno WHERE id = ?");
+    $stmt->bindparam(1, $_REQUEST['id_aluno']);
+    $stmt->execute();
+    $aluno = $stmt->fechObject();
+
+} catch(txception $e){
+    echo $e->getmessage();}
+
 ?>
     <link href="css/estilo.css" type="text/css" rel="stylesheet"/>
     <?php include_once 'includes/cabecalho.php'?>
