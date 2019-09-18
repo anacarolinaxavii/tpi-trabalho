@@ -50,13 +50,33 @@ try
 <fieldset>
       <legend> editar alunos  </legend>
         <form action="editar_alunos.php>atualizar=true"></label>
-        <label>Nome:<input type="text" name="nome" required/> </label>
-        <label>Cidade:<input type="text" name="cidade" required/> </label>
-        <label>CEP:<input type="text" name="cep" required/> </label>
-        <label>Bairro:<input type="text" name="bairro" required/> </label>
-        <label>Rua:<input type="rua" required/> </label>
-        <label>Estado:<input type="estado" required/> </label>
-        <label>Data Nasc:<input type="text" name="data_nascimento" required/> </label>
+        <label> Nome:
+
+           <input type="text" name="nome" required value="<?$aluno->nome ?>"/> 
+        
+        </label>
+        <label> Cidade:
+            
+        <input type="text" name="cidade" required value="<?$aluno->cidade ?>"/> 
+        </label>
+        <label>CEP:
+            <input type="text" name="cep" required value="<?$aluno->cep ?>"/> 
+        </label>
+        <label>Bairro:
+            <input type="text" name="bairro" required value="<?$aluno->bairro ?>"/>
+         </label>
+        <label>Rua:
+            <input type="rua" required value="<?$aluno->rua ?>"/>
+         </label>
+        <label>Estado:
+            <input type="estado" required value="<?$aluno->estado ?>"/> 
+        </label>
+        <label>Data Nasc:
+            
+        <input type="text" name="data_nascimento" required value="<?$aluno->data_nascimento ?>"/> 
+        </label>
+        
+        <a href="editar_alunos.php?excluir=true&id=<?= $aluno->id ?>">Excluir</a>
         <button type="submit">Salvar</button>
          </form>
 </legend>
